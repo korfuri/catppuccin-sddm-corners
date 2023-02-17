@@ -7,7 +7,7 @@ Column {
     Text {
         id: dateLabel
 
-        anchors.right: parent.right
+        anchors.horizontalCenter: parent.horizontalCenter
         opacity: config.DateOpacity
 
         renderType: Text.NativeRendering
@@ -24,7 +24,7 @@ Column {
     Text {
         id: timeLabel
 
-        anchors.right: parent.right
+        anchors.horizontalCenter: parent.horizontalCenter
         opacity: config.TimeOpacity
 
         renderType: Text.NativeRendering

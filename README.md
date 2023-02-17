@@ -1,56 +1,55 @@
-# corners
+# Catppuccin SDDM
 
-theme for [SDDM](https://github.com/sddm/sddm) that puts stuff on the corners of the screen. take a look!
+[Catppuccin](https://github.com/catppuccin/catppuccin) Theme for [SDDM](https://github.com/sddm/sddm). Forked from [Corners]() and customized for Catppuccin setups.
 
-![glacier preview](preview/glacier.png)
-![hanako preview](preview/hanako.png)
+![flatppuccin-macchiato preview](preview/flatppuccin-macchiato.png)
 
-wasn't really a fan of preexisting themes so I made my own. kinda inspired by [sddm-chinese-painting-theme](https://github.com/fralonra/sddm-chinese-painting-theme)
-
-## dependencies
-
-this theme does not require KDE Plasma, so also make sure you have Qt 5 installed!
+## Dependencies
 
 - SDDM
+- Qt5
 - Qt Graphical Effects
 - Qt SVG
 - Qt Quick Controls 2
 
-on Arch, simply run `pacman -Syu sddm qt5-graphicaleffects qt5-svg qt5-quickcontrols2`
+### Arch
 
-## installation
+```bash
+pacman -Syu sddm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
+```
+
+## Installation
 
 ### AUR
 
-for Arch users, the theme is available from the AUR [here](https://aur.archlinux.org/packages/sddm-theme-corners-git). install it with your favorite AUR helper: `paru sddm-theme-corners-git`
+The theme is available from the AUR [here](https://aur.archlinux.org/packages/sddm-catppuccin-git). Install it with your favorite AUR helper: `paru sddm-catppuccin-git`
 
-### manually
+### Manual
 
-on other distros, simply download/clone this repo, and copy the `corners/` folder to `/usr/share/sddm/themes/`.
+Simply clone this repo, and copy the `catppuccin/` folder to `/usr/share/sddm/themes/`.
 
+```bash
+git clone https://github.com/khaneliman/sddm-catppuccin.git
+cd sddm-catppuccin
+cp -r catppucin/ /usr/share/sddm/themes/
 ```
-git clone https://github.com/aczw/sddm-theme-corners.git
-cd sddm-theme-corners
-cp -r corners/ /usr/share/sddm/themes/
-```
 
-## configuration
-if you haven't already, make sure to change the current theme that SDDM is using. on Arch, create a config file in `/etc/sddm.conf.d/` with the following contents:
+Make sure to change the current theme that SDDM is using. on Arch, create a config file in `/etc/sddm.conf.d/` with the following contents:
 
-```
+```conf
 [Theme]
-Current=corners
+Current=catppuccin
 ```
 
-check the [Arch Wiki](https://wiki.archlinux.org/title/SDDM#Configuration) for more info.
+## Configuration
 
-you will probably want to configure the theme before using it, as out of the box it uses [Atkinson Hyperlegible](https://fonts.google.com/specimen/Atkinson+Hyperlegible) as the display font, and assumes a screen DPI of 216 (basically, my setup :p).
+You will probably want to configure the theme before using it, as out of the box it uses [Liga SFMono Nerd Font](https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized) as the display font.
 
-edit the `theme.conf` file (located inside `corners/`) as you see fit. I tried to make most stuff customizable, but please lemme know if you want other options too. the following are short descriptions of what each option does.
+Edit the `theme.conf` file (located inside `catppuccin/`) as you see fit. The following are short descriptions of what each option does.
 
-*note that colors require the leading `#` and that all options have to be wrapped in quotation marks. refer to [this](https://doc.qt.io/qt-5/qml-color.html) link for more info regarding colors.*
+_note that colors require the leading `#` and that all options have to be wrapped in quotation marks. refer to [this](https://doc.qt.io/qt-5/qml-color.html) link for more info regarding colors._
 
-### general
+### General
 
 - `Background`: path to the wallpaper. you can drop files in `backgrounds/` to use a relative path, or you can just use an absolute path.
 - `Font`: the font to use throughout the theme. use the name of the font family.
@@ -59,7 +58,7 @@ edit the `theme.conf` file (located inside `corners/`) as you see fit. I tried t
 - `GeneralFontSize`: the font size used for everything excluding the date and time.
 - `LoginScale`: this allows you to adjust the relative scale of UI elements. you should probably keep the value below 1.
 
-### user picture
+### User picture
 
 click on the avatar to change users!
 
@@ -67,7 +66,7 @@ click on the avatar to change users!
 - `UserPictureBorderColor`: the color of the outline around the user avatar.
 - `UserPictureColor`: the color of the default, blank avatar. note that this is only visible when you don't have a custom picture set.
 
-### text field (user and password)
+### Text field (user and password)
 
 - `TextFieldColor`: the color of the text field background for the user and password fields.
 - `TextFieldTextColor`: the color of the text inside the user and password fields.
@@ -76,29 +75,29 @@ click on the avatar to change users!
 - `UserFieldBgText`: the placeholder text shown in the user field when nothing is typed.
 - `PasswordFieldBgText`: the placeholder text shown in the password field when nothing is typed.
 
-### login button
+### Login button
 
 - `LoginButtonTextColor`: the color of the login button text.
 - `LoginButtonBgColor`: the color of the login button background.
 - `LoginButtonText`: the text to be displayed on the login button.
 
-### popup (power, session, and user)
+### Popup (power, session, and user)
 
 - `PopupBgColor`: the background color of the popup. this applies to the power panel, session panel, and user panel.
 - `PopupHighlightColor`: the color of the currently selected entry in the popup. this applies to the power panel, session panel, and user panel.
 - `PopupHighlightedTextColor`: the color of the text for the currently selected option. only applies to session and user popups.
 
-### session button
+### Session button
 
 - `SessionButtonColor`: the color of the session button background.
 - `SessionIconColor`: the color of the icon inside the session button.
 
-### power button
+### Power button
 
 - `PowerButtonColor`: the color of the power button background.
 - `PowerIconColor`: the color of the icon inside the session button.
 
-### date
+### Date
 
 - `DateColor`: the text color of the date.
 - `DateSize`: the font size of the date.
@@ -106,7 +105,7 @@ click on the avatar to change users!
 - `DateOpacity`: the opacity of the date text. set to 1 to disable transparency.
 - `DateFormat`: specify the formatting of the date.
 
-### time
+### Time
 
 - `TimeColor`: the text color of the time.
 - `TimeSize`: the font size of the time.
@@ -114,10 +113,6 @@ click on the avatar to change users!
 - `TimeOpacity`: the opacity of the time text. set to 1 to disable transparency.
 - `TimeFormat`: specify the formatting of the time.
 
-## license
+## License
 
-this project is licensed under the GPLv3 License. check it out [here](LICENSE).
-
-## thanks :)
-
-that's pretty much it. I hope you enjoy the theme. feedback is much appreciated!!
+This project is licensed under the GPLv3 License. check it out [here](LICENSE).

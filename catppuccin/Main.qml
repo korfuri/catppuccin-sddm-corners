@@ -39,10 +39,7 @@ Item {
         DateTimePanel {
             id: dateTimePanel
 
-            anchors {
-                top: parent.top
-                right: parent.right
-            }
+            anchors.fill: parent 
         }
         
         LoginPanel {

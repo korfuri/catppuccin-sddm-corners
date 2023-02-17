@@ -31,8 +31,8 @@ Item {
 
         width: inputWidth
         anchors {
-            bottom: parent.bottom
-            right: parent.right
+            verticalCenter: parent.verticalCenter
+            left: parent.left
         }
     
         UserPanel {
