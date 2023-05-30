@@ -20,6 +20,34 @@ pacman -Syu sddm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
 
 ## Installation
 
+### NixOS
+
+Just add this flake as an input and reference its package output for installation. Then use it within your config by name for sddm theme.
+
+```nix
+inputs.sddm-catppuccin.url = "github:khaneliman/sddm-catppuccin";
+inputs.sddm-catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+
+...
+
+inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
+
+...
+
+services.xserver = {
+    enable = true;
+
+    libinput.enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        theme = "catppuccin";
+      };
+    };
+  };
+
+```
+
 ### AUR
 
 The theme is available from the AUR [here](https://aur.archlinux.org/packages/sddm-catppuccin-git). Install it with your favorite AUR helper: `paru sddm-catppuccin-git`
