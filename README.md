@@ -25,27 +25,19 @@ pacman -Syu sddm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
 Just add this flake as an input and reference its package output for installation. Then use it within your config by name for sddm theme.
 
 ```nix
-inputs.sddm-catppuccin.url = "github:khaneliman/sddm-catppuccin";
+inputs.sddm-catppuccin.url = "github:khaneliman/catppuccin-sddm-corners";
 inputs.sddm-catppuccin.inputs.nixpkgs.follows = "nixpkgs";
 
 ...
 
-inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
+inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.catppuccin-sddm-corners
 
 ...
 
-services.xserver = {
+services.displayManager.sddm = {
     enable = true;
-
-    libinput.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        theme = "catppuccin";
-      };
-    };
-  };
-
+    theme = "catppuccin-sddm-corners";
+};
 ```
 
 ### AUR
@@ -57,8 +49,8 @@ The theme is available from the AUR [here](https://aur.archlinux.org/packages/sd
 Simply clone this repo, and copy the `catppuccin/` folder to `/usr/share/sddm/themes/`.
 
 ```bash
-git clone https://github.com/khaneliman/sddm-catppuccin.git
-cd sddm-catppuccin
+git clone https://github.com/khaneliman/catppuccin-sddm-corners.git
+cd catppuccin-sddm-corners
 cp -r catppucin/ /usr/share/sddm/themes/
 ```
 
