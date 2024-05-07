@@ -22,7 +22,22 @@ pacman -Syu sddm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
 
 ### NixOS
 
-Just add this flake as an input and reference its package output for installation. Then use it within your config by name for sddm theme.
+This theme is available in the [Nixpkgs repo](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/ca/catppuccin-sddm-corners/package.nix)
+You can just add the package and reference the output for the theme.
+
+```nix
+environment.packages = with pkgs; [ catppuccin-sddm-corners ];
+
+...
+
+services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-sddm-corners";
+};
+
+```
+
+If you'd like to use the flake. Just add this flake as an input and reference its package output for installation. Then use it within your config by name for sddm theme.
 
 ```nix
 inputs.sddm-catppuccin.url = "github:khaneliman/catppuccin-sddm-corners";
